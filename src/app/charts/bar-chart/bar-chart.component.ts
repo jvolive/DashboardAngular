@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 const SAMPLE_BARCHART_DATA: any[] = [
   { data: [65, 59, 80, 81, 56, 54, 30], label: 'Q3 Sales' },
@@ -20,7 +20,7 @@ const SAMPLE_BARCHART_LABELS: string[] = [
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css'],
 })
-export class BarChartComponent {
+export class BarChartComponent implements OnInit {
   constructor() {}
 
   public barChartData: any[] = SAMPLE_BARCHART_DATA;
@@ -30,4 +30,6 @@ export class BarChartComponent {
     scaleShowVerticalLines: false,
     responsive: true,
   };
+
+  ngOnInit() {}
 }
