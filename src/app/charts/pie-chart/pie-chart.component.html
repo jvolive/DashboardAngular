@@ -1,8 +1,9 @@
 <div>
   <canvas
     baseChart
-    [data]="pieChartData"
-    [type]="'pie'"
+    [datasets]="pieChartDatasets"
+    [labels]="pieChartLabels"
+    [type]="'doughnut'"
   >
   </canvas>
 </div>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-pie-chart',
@@ -9,20 +7,13 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class PieChartComponent implements OnInit {
   constructor() {}
-  public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: ['Programs JVO', 'Romeu e Julieta', 'Beca Logistics'],
-    datasets: [
-      {
-        data: [300, 500, 100],
-      },
-    ],
-  };
-
-  colors: any[] = [
+  pieChartDatasets = [
     {
-      backgroundColor: ['#26547C', '#FF6B6B', '#FFD166'],
+      data: [300, 500],
+      backgroundColor: ['#26547c', '#FF6B6B'],
     },
   ];
+  pieChartLabels = ['Label 1', 'Label 2'];
 
   ngOnInit() {}
 }
