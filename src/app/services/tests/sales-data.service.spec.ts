@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { SalesDataService } from 'src/app/services/sales-data.service';
 
 describe('SalesDataService', () => {
