@@ -7,17 +7,17 @@ export class SalesDataService {
 
   getOrders(pageIndex: number, pageSize: number) {
     return this._http.get<any>(
-      'http://localhost:5000/api/order/' + pageIndex + '/' + pageSize
+      'http://localhost:7015/api/order/' + pageIndex + '/' + pageSize
     );
   }
 
   getOrdersByCustomer(n: number) {
     return this._http.get<any>(
-      'http://localhost:5000/api/order/bycustomer/' + n
+      'http://localhost:7015/api/order/bycustomer/' + n
     );
   }
 
   getOrdersByState() {
-    return this._http.get<any>('http://localhost:5000/api/order/bystate/');
+    return this._http.get<any>('http://localhost:7015/api/order/bystate/');
   }
 }

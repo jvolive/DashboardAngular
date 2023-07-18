@@ -10,7 +10,7 @@ import { SalesDataService } from '../../services/sales-data.service';
 export class SectionOrdersComponent implements OnInit {
   constructor(private _salesData: SalesDataService) {}
 
-  orders: Order[] = [];
+  orders!: Order[];
   total = 0;
   page = 1;
   limit = 10;

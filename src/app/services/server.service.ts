@@ -10,7 +10,7 @@ export class ServerService {
   constructor(private _http: HttpClient) {}
 
   getServers(): Observable<Server[]> {
-    const url = 'http://localhost:5000/api/server';
+    const url = 'http://localhost:7015/api/server';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'q=0.8;application/json;q=0.9',
@@ -32,7 +32,7 @@ export class ServerService {
   }
 
   handleServerMessage(msg: ServerMessage): Observable<any> {
-    const url = `http://localhost:5000/api/server/${msg.id}`;
+    const url = `http://localhost:7015/api/server/${msg.id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'q=0.8;application/json;q=0.9',
