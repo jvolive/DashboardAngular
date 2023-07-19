@@ -10,7 +10,7 @@ import { SalesDataService } from '../../services/sales-data.service';
 export class SectionOrdersComponent implements OnInit {
   constructor(private _salesData: SalesDataService) {}
 
-  orders!: Order[];
+  orders: Order[];
   total = 0;
   page = 1;
   limit = 10;
@@ -21,22 +21,28 @@ export class SectionOrdersComponent implements OnInit {
   }
 
   getOrders(): void {
-    this._salesData.getOrders(this.page, this.limit).subscribe((res) => {
-      console.log('Result from getOrders: ', res);
-      this.orders = res['page']['data'];
-      this.total = res['page'].total;
-      this.loading = false;
-    });
+    this.loading = true; // Show loading indicator
+    this._salesData.getOrders(this.page, this.limit).subscribe(
+      (apiResponse: any) => {
+        console.log('Result from getOrders: ', apiResponse);
+        this.orders = apiResponse['page']['data'];
+        this.total = apiResponse['page']['total'];
+        this.loading = false; // Hide loading indicator
+      },
+      (error) => {
+        console.error('Error while fetching orders: ', error);
+        this.loading = false; // In case of an error, hide loading indicator
+      }
+    );
   }
 
   goToPrevious(): void {
-    // console.log('Previous Button Clicked!');
+    console.log('Previous Button Clicked!');
     this.page--;
     this.getOrders();
   }
 
   goToNext(): void {
-    // console.log('Next Button Clicked!');
     this.page++;
     this.getOrders();
   }

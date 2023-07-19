@@ -10,12 +10,12 @@ import { Server } from '../shared/server';
 export class ServerComponent implements OnInit {
   constructor() {}
 
-  color!: string;
-  buttonText!: string;
-  serverStatus!: string;
-  isLoading!: boolean;
+  color: string;
+  buttonText: string;
+  serverStatus: string;
+  isLoading: boolean;
 
-  @Input() serverInput!: Server;
+  @Input() serverInput: Server;
   @Output() serverAction = new EventEmitter<ServerMessage>();
 
   ngOnInit() {

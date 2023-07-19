@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ServerMessage } from '../shared/server-message';
 import { Server } from '../shared/server';
 
 @Injectable()
 export class ServerService {
+  private apiUrl = 'http://localhost:5000/api/';
+
   constructor(private _http: HttpClient) {}
 
   getServers(): Observable<Server[]> {
-    const url = 'http://localhost:7015/api/server';
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Accept: 'q=0.8;application/json;q=0.9',
-    });
-
-    return this._http.get<Server[]>(url, { headers }).pipe(
-      map((res) => res),
-      catchError(this.handleError)
-    );
+    return this._http
+      .get<Server[]>(`${this.apiUrl}server`)
+      .pipe(catchError(this.handleError));
   }
 
-  handleError(error: any) {
+  private handleError(error: HttpErrorResponse) {
     const errMsg =
       error.message ||
       (error.status ? `${error.status} - ${error.statusText}` : 'Server error');
@@ -32,15 +31,7 @@ export class ServerService {
   }
 
   handleServerMessage(msg: ServerMessage): Observable<any> {
-    const url = `http://localhost:7015/api/server/${msg.id}`;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Accept: 'q=0.8;application/json;q=0.9',
-    });
-
-    return this._http.put(url, msg, { headers }).pipe(
-      map((res) => res),
-      catchError(this.handleError)
-    );
+    const url = `${this.apiUrl}server/${msg.id}`;
+    return this._http.put(url, msg).pipe(catchError(this.handleError));
   }
 }

@@ -13,7 +13,6 @@
   display: block;
   transition: 0.3;
 }
-
 .name {
   padding: 5px;
   font-size: 0.7em;
@@ -21,7 +20,6 @@
   font-family: monospace;
   transition: 0.3;
 }
-
 .action {
   display: block;
   font-size: 0.7em;
