@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesDataService } from '../../services/sales-data.service';
 import * as moment from 'moment';
+import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-line-chart',

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 
 //components
@@ -36,11 +37,12 @@ import { ServerService } from './services/server.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     NgChartsModule,
   ],
-  providers: [],
+  providers: [SalesDataService, ServerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

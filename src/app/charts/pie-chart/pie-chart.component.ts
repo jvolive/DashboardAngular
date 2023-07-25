@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as _ from 'lodash';
 import { THEME_COLORS } from '../../shared/theme.colors';
+import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 const theme = 'Bright';
 
@@ -15,7 +16,9 @@ export class PieChartComponent implements OnInit {
   @Input() inputData: any;
   @Input() limit: number;
 
-  pieChartData: number[];
+  pieChartData: ChartData<'doughnut'> = {
+    datasets: [],
+  };
   pieChartLabels: string[];
 
   colors: any[] = [
