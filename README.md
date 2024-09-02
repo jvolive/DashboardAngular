@@ -32,9 +32,6 @@ src/index.html: Arquivo HTML raiz do aplicativo.
 backend/Controllers: Contém os controladores ASP.NET para fornecer APIs e dados ao frontend.
 backend/Models: Modelos de dados utilizados pelo backend.
 
-# Contribuição
-
-Se você quiser contribuir com este projeto, sinta-se à vontade para fazer um fork, fazer as alterações desejadas e enviar um pull request.
 
 # Licença
 
